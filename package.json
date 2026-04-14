@@ -1,6 +1,7 @@
 {
   "name": "react-portfolio",
   "private": true,
+  "homepage": "https://kadam-uday03.github.io/UdayDev/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
