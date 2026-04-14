@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import editionStudioImg from './assets/editionstudio.png';
 import airJordanImg from './assets/airJordan.png';
 import miniStoreImg from './assets/miniStore.png';
@@ -94,7 +95,7 @@ function Hero() {
       </div>
       <div className="shrink-0 w-full md:w-64 lg:w-72 flex flex-col justify-between gap-8 md:gap-4 items-center md:items-end">
         <div className="w-56 sm:w-64 md:w-full h-56 sm:h-64 md:h-[18rem] rounded-[2rem] overflow-hidden bg-gray-100 object-cover shrink-0 shadow-sm border-4 border-white">
-          <img src={udayImg} alt="Portrait" className="w-full h-full object-cover" />
+          <img src={udayImg} alt="Portrait" className="w-full h-full object-cover object-top" />
         </div>
         <div className="text-sm font-medium text-center md:text-right md:text-base lg:text-[1.2rem] xl:text-[1.2rem] leading-relaxed w-full text-gray-600 max-w-xs md:max-w-none">
           Hi, I'm Uday.Dev, a Web <br className="hidden md:block" />
@@ -108,37 +109,41 @@ function Hero() {
 
 function About() {
   return (
-    <section id="about" className="px-6 md:px-12 py-24 bg-white border-t border-gray-100">
-      <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-12">
-        <div className="max-w-xl">
-          <PillLabel>About Me</PillLabel>
-          <h2 className="text-4xl md:text-4xl leading-tight font-semibold tracking-tight">
-            Web development has always been more than just a job - it's my passion.
+    <section id="about" className="px-6 md:px-12 py-12 md:py-24 bg-white border-t border-gray-100">
+      <div className="flex flex-col md:flex-row justify-between items-start gap-8 md:gap-12 mb-10 md:mb-16">
+        <div className="max-w-2xl">
+          <PillLabel>About Us</PillLabel>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-4xl leading-[1.1] font-semibold tracking-tighter mb-4 md:mb-8">
+            Transforming complex visions into high-performing digital realities.
           </h2>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed font-medium max-w-xl">
+             As a freelance developer, I specialize in building bespoke web experiences that bridge the gap between aesthetic excellence and technical precision.
+          </p>
         </div>
-        <div className="max-w-xs text-sm text-gray-500 font-medium leading-relaxed pt-2 md:pt-16">
-          Building digital products is not just a job for me, it's a passion that drives me.
+        <div className="max-w-xs text-xs sm:text-sm text-gray-400 md:text-gray-500 font-medium leading-relaxed pt-0 md:pt-20">
+          My mission is to empower brands by delivering scalable, user-centric products that not only look stunning but drive measurable business results through clean, optimized code.
         </div>
       </div>
       
-      <div className="flex flex-col md:flex-row gap-12">
-        <div className="flex-1 relative rounded-3xl overflow-hidden bg-gray-200 aspect-[16/9]">
-           <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop" alt="Working" className="w-full h-full object-cover" />
-           <div className="absolute inset-0 flex items-center justify-center">
-             <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
-               <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-             </div>
+      <div className="flex flex-col md:flex-row gap-8 lg:gap-16">
+        <div className="flex-[1.5] relative rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-gray-100 aspect-[16/10] shadow-xl md:shadow-2xl group">
+           <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2000&auto=format&fit=crop" alt="Creative Workspace" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+           <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
+           <div className="absolute top-4 right-4 md:top-6 md:right-6 px-3 py-1.5 md:px-4 md:py-2 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-[8px] md:text-[10px] uppercase tracking-widest font-bold text-white">
+             Bespoke Development
            </div>
         </div>
         
-        <div className="w-full md:w-64 flex flex-col sm:flex-row md:flex-col justify-center gap-8 md:gap-12">
-          <div className="flex-1">
-            <div className="text-5xl md:text-6xl font-semibold tracking-tighter mb-2">+320</div>
-            <div className="text-xs text-gray-500 font-medium leading-relaxed">Projects completed with a focus on scalable and responsive web development.</div>
+        <div className="flex-1 flex flex-col md:justify-center md:items-end gap-8 md:gap-16 px-0 md:text-right">
+          <div className="group">
+            <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold tracking-[ -0.05em] mb-2 md:mb-4 text-black group-hover:translate-x-2 transition-transform duration-300 italic font-serif">02+</div>
+            <div className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-gray-400 mb-1 md:mb-2 text-primary">Years of Excellence</div>
+            <div className="text-xs md:text-sm text-gray-500 font-medium leading-relaxed max-w-[240px]">Proven track record of delivering high-quality, independent web solutions for global clients.</div>
           </div>
-          <div className="flex-1">
-            <div className="text-5xl md:text-6xl font-semibold tracking-tighter mb-2">+280</div>
-            <div className="text-xs text-gray-500 font-medium leading-relaxed">Satisfied clients who have seen their businesses grow through our collaboration.</div>
+          <div className="group">
+            <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold tracking-[ -0.05em] mb-2 md:mb-4 text-black group-hover:translate-x-2 transition-transform duration-300 italic font-serif">10+</div>
+            <div className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-gray-400 mb-1 md:mb-2 text-primary">Projects Delivered</div>
+            <div className="text-xs md:text-sm text-gray-500 font-medium leading-relaxed max-w-[240px]">Successful collaborations ranging from boutique brand sites to complex SaaS platforms.</div>
           </div>
         </div>
       </div>
@@ -291,7 +296,7 @@ function Testimonial() {
         </p>
         <div className="flex items-center justify-center gap-4">
           <div className="w-12 h-12 bg-gray-200 rounded-full overflow-hidden">
-             <img src={udayImg} className="w-full h-full object-cover" alt="Author" />
+             <img src={udayImg} className="w-full h-full object-cover object-top" alt="Author" />
           </div>
           <div className="text-left">
             <div className="text-sm font-bold">Uday Kadam</div>
@@ -370,6 +375,26 @@ function Footer() {
 }
 
 function ContactPage() {
+  const form = useRef();
+  const [status, setStatus] = useState('idle'); // idle, sending, success, error
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setStatus('sending');
+
+    emailjs.sendForm('service_jjhupl9', 'template_r0m56pq', form.current, 'N_YSKGONd793zENJ7')
+      .then((result) => {
+          console.log(result.text);
+          setStatus('success');
+          form.current.reset();
+          setTimeout(() => setStatus('idle'), 5000);
+      }, (error) => {
+          console.log(error.text);
+          setStatus('error');
+          setTimeout(() => setStatus('idle'), 5000);
+      });
+  };
+
   return (
     <section className="px-6 md:px-12 py-24 bg-white min-h-[60vh] flex flex-col items-center">
       <PillLabel>Get In Touch</PillLabel>
@@ -380,16 +405,30 @@ function ContactPage() {
         Whether you have a question, a project in mind, or just want to say hi, my inbox is always open. I'll try my best to get back to you!
       </p>
       
-      <form className="w-full max-w-2xl bg-gray-50 p-6 md:p-10 rounded-[2rem] shadow-sm border border-gray-100 flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+      <form ref={form} className="w-full max-w-2xl bg-gray-50 p-6 md:p-10 rounded-[2rem] shadow-sm border border-gray-100 flex flex-col gap-6" onSubmit={sendEmail}>
         <div className="flex flex-col md:flex-row gap-6">
-          <input type="text" placeholder="Your Name" required className="flex-1 bg-white px-6 py-4 rounded-full border border-gray-200 outline-none focus:border-black transition-colors" />
-          <input type="email" placeholder="Your Email" required className="flex-1 bg-white px-6 py-4 rounded-full border border-gray-200 outline-none focus:border-black transition-colors" />
+          <input type="text" name="from_name" placeholder="Your Name" required className="flex-1 bg-white px-6 py-4 rounded-full border border-gray-200 outline-none focus:border-black transition-colors" />
+          <input type="email" name="from_email" placeholder="Your Email" required className="flex-1 bg-white px-6 py-4 rounded-full border border-gray-200 outline-none focus:border-black transition-colors" />
         </div>
-        <input type="text" placeholder="Subject" className="w-full bg-white px-6 py-4 rounded-full border border-gray-200 outline-none focus:border-black transition-colors" />
-        <textarea rows="5" placeholder="Your Message" required className="w-full bg-white px-6 py-4 rounded-[2rem] border border-gray-200 outline-none focus:border-black transition-colors resize-none"></textarea>
-        <button type="submit" className="bg-black text-white px-10 py-4 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer shadow-lg hover:shadow-xl hover:bg-gray-800 self-center md:self-start w-full md:w-auto mt-2">
-          Send Message
-        </button>
+        <input type="text" name="subject" placeholder="Subject" className="w-full bg-white px-6 py-4 rounded-full border border-gray-200 outline-none focus:border-black transition-colors" />
+        <textarea name="message" rows="5" placeholder="Your Message" required className="w-full bg-white px-6 py-4 rounded-[2rem] border border-gray-200 outline-none focus:border-black transition-colors resize-none"></textarea>
+        
+        <div className="flex flex-col items-center gap-4">
+          <button 
+            type="submit" 
+            disabled={status === 'sending'}
+            className={`bg-black text-white px-10 py-4 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer shadow-lg hover:shadow-xl hover:bg-gray-800 self-center md:self-start w-full md:w-auto mt-2 ${status === 'sending' ? 'opacity-50 cursor-not-allowed' : ''}`}
+          >
+            {status === 'sending' ? 'Sending...' : 'Send Message'}
+          </button>
+
+          {status === 'success' && (
+            <p className="text-green-600 font-semibold animate-bounce mt-2">✨ Message sent successfully! I'll get back to you soon.</p>
+          )}
+          {status === 'error' && (
+            <p className="text-red-500 font-semibold mt-2">❌ Something went wrong. Please try again or email me directly.</p>
+          )}
+        </div>
       </form>
     </section>
   )
