@@ -5,6 +5,7 @@ import airJordanImg from './assets/airJordan.png';
 import miniStoreImg from './assets/miniStore.png';
 import logoImg from './assets/logo.png';
 import udayImg from './assets/uday.png';
+import devanshImg from './assets/devansh.jpg';
 
 // Common components to match the design's recurring elements
 const PillLabel = ({ children }) => (
@@ -201,7 +202,7 @@ function Services({ onNavigate }) {
 function Experience() {
   const [activeExp, setActiveExp] = useState(1);
   const experiences = [
-    { title: "B.Tech in Computer Science", desc: "Studied core principles of programming, algorithms, database management, and software engineering foundations.", year: "2020 - 2024" },
+    { title: "B.Tech in Computer Science", desc: "Studied core principles of programming, algorithms, database management, and software engineering foundations.", year: "2022 - 2026" },
     { title: "Web Dev Bootcamp at Coding Ninja", desc: "Intensive training program focusing on modern React, Node.js, and building full-stack web applications.", year: "2023" },
     { title: "Frontend Developer Intern at TechStart", desc: "Assisted in building responsive user interfaces, fixing bugs, and collaborating with senior developers on real-world projects.", year: "2023 - 2024" },
     { title: "Freelance Web Developer", desc: "Creating reactive websites, customizing themes, and designing portfolios for independent clients.", year: "2024 - Now" },
@@ -296,11 +297,11 @@ function Testimonial() {
         </p>
         <div className="flex items-center justify-center gap-4">
           <div className="w-12 h-12 bg-gray-200 rounded-full overflow-hidden">
-             <img src={udayImg} className="w-full h-full object-cover object-top" alt="Author" />
+             <img src={devanshImg} className="w-full h-full object-cover object-top" alt="Author" />
           </div>
           <div className="text-left">
-            <div className="text-sm font-bold">Uday Kadam</div>
-            <div className="text-[10px] uppercase font-bold tracking-wider text-gray-500">The Webdev</div>
+            <div className="text-sm font-bold">Edition Studio</div>
+            <div className="text-[10px] uppercase font-bold tracking-wider text-gray-500">Devansh Jain,Co-Founder </div>
           </div>
         </div>
       </div>
